@@ -1,0 +1,15 @@
+drop table gameusers2;
+
+CREATE TABLE GAMEUSERS2(
+  ID VARCHAR2(20) PRIMARY KEY,
+  PASS NUMBER(20) NOT NULL,
+  score NUMBER(20) NOT NULL
+);
+COMMIT;
+
+INSERT INTO GAMEUSERS2 (ID,PASS,score)
+VALUES('ASED', 1234, 0);
+COMMIT;
+
+select * from gameusers2;
+commit work;
