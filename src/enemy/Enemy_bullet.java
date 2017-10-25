@@ -30,6 +30,7 @@ public class Enemy_bullet extends Walker3{
 		lock_Trans = true;
 		//워커의 기본 생명력 50
 		enemy_HP = 1;
+		enemy_HPinit = enemy_HP;
 	}
 	//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@오버 라이딩
 		//경계 구역 사각형 값 리턴

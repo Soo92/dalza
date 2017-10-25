@@ -31,6 +31,7 @@ public class Biggle extends Enemy{
 		lock_Trans = true;
 		//워커의 기본 생명력 50
 		enemy_HP = 50;
+		enemy_HPinit = enemy_HP;
 	}
 	//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@오버 라이딩
 		//경계 구역 사각형 값 리턴

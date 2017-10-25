@@ -7,7 +7,7 @@ public class Walker extends Enemy{
 
 	//lock_Trans = 태세 변환을 위한 불린 공격/경계 등
 	private boolean lock_Trans;
-	
+		
 	public Walker(int left_Site, int right_Site, int bottom_Site) {
 		super(left_Site, right_Site, bottom_Site);
 		// TODO Auto-generated constructor stub
@@ -18,6 +18,7 @@ public class Walker extends Enemy{
 		lock_Trans = true;
 		//워커의 기본 생명력 50
 		enemy_HP = 20;
+		enemy_HPinit = enemy_HP;
 	}
 	//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@오버 라이딩
 		//경계 구역 사각형 값 리턴

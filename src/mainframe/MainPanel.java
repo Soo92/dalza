@@ -54,7 +54,6 @@ public class MainPanel extends MFrame implements ActionListener{
 		setLayout(null);
 		setLocation(focus_X, focus_Y); //프레임을 화면에 배치
 
-
 		idl = new Label("ID");
 		pwl = new Label("PASS");
 		idTx = new TextField("aaa");
@@ -85,15 +84,17 @@ public class MainPanel extends MFrame implements ActionListener{
 
 		repaint();
 	}
-
+	
 	@Override
 	public void paint(Graphics g) {
-		//buffi.drawImage(background, 0, 0, this);
-		g.setColor(Color.DARK_GRAY);
-		g.setFont(new Font("돋움", Font.BOLD, 50));
-		g.drawString("회식", 170, 150);
+		try {
+			buffi.drawImage(background, 0, 0, this);			
+			buffi.setColor(Color.DARK_GRAY);
+			buffi.setFont(new Font("돋움", Font.BOLD, 50));
+			buffi.drawString("회식", 170, 150);
+		} catch (Exception e) {
+		}
 		g.drawImage(buffImg, 0, 0, this);
-		g.drawImage(background, 0, 0, this);
 	}
 	
 
@@ -112,6 +113,7 @@ public class MainPanel extends MFrame implements ActionListener{
 				}else if(mgr.checkPass(bean)){
 					msgl.setText("PW를 확인해주세요.");
 				}else	{
+					dispose();
 					new Main();
 				}
 			}
@@ -127,9 +129,9 @@ public class MainPanel extends MFrame implements ActionListener{
 					msgl.setText("사용 중인 ID입니다.");
 				}
 			}
-	}	
+	}		
 	public static void main(String[] args) {
-		MainPanel a =new MainPanel();
+		new MainPanel();
 	}
-	}
+}
 

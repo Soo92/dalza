@@ -84,21 +84,21 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 		init();
 		setTitle("Shot");		//프레임의 이름을 설정
 		setSize(framew, frameh); //프레임의 크기
-		
+			
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();		//프레임이 윈도우에 표시괼때 위치를 세팅하기 위함.
 
 		Panel pa = new Panel();                                    //채팅 판넬
-	      pa.setBackground(Color.green);
-	      pa.setLayout(new BorderLayout());
-	      pa.add(ta = new TextArea(),BorderLayout.NORTH);
-	      ta.setVisible(false);
-	      ta.setEditable(false);
-	      ta.setFocusable(false);
-	      pa.add(tf = new TextField());
-	      tf.setFocusable(false);
-	      tf.addActionListener(this);
-
-	      this.add(pa,BorderLayout.SOUTH);
+	    pa.setBackground(Color.green);
+	    pa.setLayout(new BorderLayout());
+	    pa.add(ta = new TextArea(),BorderLayout.NORTH);
+	    ta.setVisible(false);
+	    ta.setEditable(false);
+	    ta.setFocusable(false);
+	    pa.add(tf = new TextField());
+	    tf.setFocusable(false);
+	    tf.addActionListener(this);
+	
+	    this.add(pa,BorderLayout.SOUTH);
 
 		this.add(pa,BorderLayout.SOUTH);
 		
@@ -150,9 +150,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 	}
 	
 	public void paint(Graphics g){
-		//더블버퍼링 버퍼 크기를 화면 크기와 같게 설정
 		buffImage = createImage(buffw,buffh);
-		//버퍼의 그래픽 객체 얻기
 		buffg = buffImage.getGraphics();
 		if(!resumed) {
 			update(g);
@@ -163,15 +161,6 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 	private void update1(Graphics g) {
 		//일시정지
 		if(resumed) {
-//			g.drawImage(tk.getImage("img/menu_background.png"), 0, 0, this);
-//			setOpacity(0.2f);
-//			g.setColor(Color.black);
-//			g.fillRect(0, 0, 700, 700);
-		/*	g.drawImage(menu1, 250-a/5, 200-a/2, 200+a/4, 50+a, this);
-			g.drawImage(menu2, 250-b/5, 260-b/2, 200+b/4, 50+b, this);
-			g.drawImage(menu3, 250-c/5, 320-c/2, 200+c/4, 50+c, this);*/
-//		g.drawImage(menu4, 250-d/5, 380-d/2, 200+d/4, 50+d, this);
-			
 			if(a==20)
 				g.drawImage(tk.getImage("img/sub_button_start_.gif"), 230, 250, this);
 			else
@@ -199,7 +188,6 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 		//스테이지를 그린다.
 		draw_Stage();
 		//화면에 버퍼에 그린 그림을 가져와 그리기
-		g.clearRect(0, 0, framew, frameh);
 			if((mainCh.get_Hero_X_Point()-framew/3)-113 < 0 ) {
 				buffg.drawImage(buffImage,0,(mainCh.get_Hero_Y_Point()-buffh/3)+25, 300, 100, this);	
 			}else if((mainCh.get_Hero_X_Point()-framew/3)-113 >= 0){
@@ -817,8 +805,22 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x + enemy.get_Enemy_Width(), enemy.get_enemy_Point().y,-enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
-				buffg.setColor(Color.RED);
-				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/10, 5); //적 에너지 바 위치, 크기
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()*2/3) {
+					System.out.println("aa");
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.green);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()*2/3)/5, 5); //적 에너지 바 위치, 크기
+				}else
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()/3) {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()/3)/5, 5); //적 에너지 바 위치, 크기
+				}else {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/5, 5); //적 에너지 바 위치, 크기
+				}
 				buffg.setColor(Color.BLACK);
 			}
 			if(enemy instanceof Walker2){ //에너미중 워커의 객체가 있다면 그려라

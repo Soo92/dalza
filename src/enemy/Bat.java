@@ -29,7 +29,8 @@ public class Bat extends Enemy{
       lock_Trans = true;
       //워커의 기본 생명력 50
       enemy_HP = 50;
-   }
+      enemy_HPinit = enemy_HP;
+  }
    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@오버 라이딩
       //경계 구역 사각형 값 리턴
       public int get_Range_Site_Width_Right_Point(){
