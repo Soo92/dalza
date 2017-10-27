@@ -102,10 +102,10 @@ public class MainPanel extends MFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object obj = e.getSource();
 		
-		msgl.setForeground(Color.red);
 		MemberBean bean = new MemberBean();
 			if (obj == logBtn) { 
 				// 중복 체크
+				msgl.setForeground(Color.red);
 				bean.setId(idTx.getText());
 				bean.setPass(pwTx.getText());
 				if(mgr.checkID(bean)) {
@@ -134,4 +134,3 @@ public class MainPanel extends MFrame implements ActionListener{
 		new MainPanel();
 	}
 }
-
