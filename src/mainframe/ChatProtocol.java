@@ -1,6 +1,6 @@
 package mainframe;
 
-public class ChatProtocol2 {
+public class ChatProtocol {
 	
 	public static final String ID = "ID";
 	//(C->S) ID:aaa

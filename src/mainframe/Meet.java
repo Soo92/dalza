@@ -134,7 +134,7 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 			}
 			if(!flag/*아이디 일때*/) {
 				user=str;
-				sendMessage(ChatProtocol2.ID+":"+str);
+				sendMessage(ChatProtocol.ID+":"+str);
 				setTitle(getTitle()+"----"+str+"님 반갑습니다.");
 				ta.setText(" ");
 				tf.setText("");
@@ -142,10 +142,10 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 			}else/*일반채팅*/ {
 				int i = list.getSelectedIndex();
 				if(i==-1||i==0) { //전체채팅
-					sendMessage(ChatProtocol2.CHATALL+":"+str);
+					sendMessage(ChatProtocol.CHATALL+":"+str);
 				}else { // 귓속말 채팅
 					String id = list.getSelectedItem();
-					sendMessage(ChatProtocol2.CHAT+":"+
+					sendMessage(ChatProtocol.CHAT+":"+
 							id+";"+str);
 				}
 				tf.setText("");
@@ -688,7 +688,7 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 	}
 	
 	public void sendLocation(Hero mainCh) {
-		out.println(ChatProtocol2.HEROSET+":"+
+		out.println(ChatProtocol.HEROSET+":"+
 				mainCh.get_Hero_X_Point()+","+
 				mainCh.get_Hero_Y_Point()+","+
 				mainCh.get_Hero_Width()+","+
@@ -702,7 +702,7 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 		int idx = line.indexOf(':');
 		String cmd = line.substring(0, idx);
 		String data = line.substring(idx+1);
-		if(cmd.equals(ChatProtocol2.CHATLIST)) {
+		if(cmd.equals(ChatProtocol.CHATLIST)) {
 			//data - aaa;bbb;ccc;
 			list.removeAll();
 			list.add(listTitle);
@@ -713,15 +713,15 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 				list.add(a);
 				Hero_List.add("0,0,0,0,false,true,img/char2.gif");
 			}
-		}else if(cmd.equals(ChatProtocol2.CHAT)||
-				cmd.equals(ChatProtocol2.CHATALL)) {
+		}else if(cmd.equals(ChatProtocol.CHAT)||
+				cmd.equals(ChatProtocol.CHATALL)) {
 			ta.append(data+"\n");
-		}else if(cmd.equals(ChatProtocol2.MESSAGE)) {
+		}else if(cmd.equals(ChatProtocol.MESSAGE)) {
 			idx = data.indexOf(';');
 			cmd = data.substring(0, idx);
 			data = data.substring(idx+1);
 			new Message("FROM", cmd, data);
-		}else if(cmd.equals(ChatProtocol2.HEROSET)){
+		}else if(cmd.equals(ChatProtocol.HEROSET)){
 			idx = data.indexOf("[");
 			int idx2 = data.indexOf("]");
 			String User = data.substring(idx+1,idx2);
@@ -810,7 +810,7 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 		public void actionPerformed(ActionEvent e) {
 
 			if(e.getSource()==send){
-				sendMessage(ChatProtocol2.MESSAGE+
+				sendMessage(ChatProtocol.MESSAGE+
 						":"+id+";"+ ta.getText());
 			}
 			setVisible(false);

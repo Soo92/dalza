@@ -829,8 +829,22 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x + enemy.get_Enemy_Width(), enemy.get_enemy_Point().y,-enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
-				buffg.setColor(Color.RED);
-				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/10, 5); //적 에너지 바 위치, 크기
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()*2/3) {
+					System.out.println("aa");
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.green);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()*2/3)/5, 5); //적 에너지 바 위치, 크기
+				}else
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()/3) {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()/3)/5, 5); //적 에너지 바 위치, 크기
+				}else {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/5, 5); //적 에너지 바 위치, 크기
+				}
 				buffg.setColor(Color.BLACK);
 			}
 			
@@ -840,8 +854,6 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x + enemy.get_Enemy_Width(), enemy.get_enemy_Point().y,-enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
-				buffg.setColor(Color.RED);
-				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/10, 5); //적 에너지 바 위치, 크기
 				buffg.setColor(Color.BLACK);
 			}
 			
@@ -851,8 +863,22 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x + enemy.get_Enemy_Width(), enemy.get_enemy_Point().y,-enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
-				buffg.setColor(Color.RED);
-				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/10, 5); //적 에너지 바 위치, 크기
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()*2/3) {
+					System.out.println("aa");
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.green);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()*2/3)/5, 5); //적 에너지 바 위치, 크기
+				}else
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()/3) {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()/3)/5, 5); //적 에너지 바 위치, 크기
+				}else {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/5, 5); //적 에너지 바 위치, 크기
+				}
 				buffg.setColor(Color.BLACK);
 			}
 			
@@ -862,8 +888,22 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x + enemy.get_Enemy_Width(), enemy.get_enemy_Point().y,-enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
-				buffg.setColor(Color.RED);
-				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/10, 5); //적 에너지 바 위치, 크기
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()*2/3) {
+					System.out.println("aa");
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.green);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()*2/3)/5, 5); //적 에너지 바 위치, 크기
+				}else
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()/3) {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()/3)/5, 5); //적 에너지 바 위치, 크기
+				}else {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/5, 5); //적 에너지 바 위치, 크기
+				}
 				buffg.setColor(Color.BLACK);
 			}
 			
@@ -873,8 +913,22 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x + enemy.get_Enemy_Width(), enemy.get_enemy_Point().y,-enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
-				buffg.setColor(Color.RED);
-				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/10, 5); //적 에너지 바 위치, 크기
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()*2/3) {
+					System.out.println("aa");
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.green);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()*2/3)/5, 5); //적 에너지 바 위치, 크기
+				}else
+				if(enemy.get_Enemy_HP()>=enemy.get_Enemy_HPinit()/3) {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5, 5); //적 에너지 바 위치, 크기
+					buffg.setColor(Color.yellow);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*(enemy.get_Enemy_HP()-enemy.get_Enemy_HPinit()/3)/5, 5); //적 에너지 바 위치, 크기
+				}else {
+					buffg.setColor(Color.red);
+					buffg.fillRect(enemy.get_enemy_Point().x+enemy.get_Enemy_Width()/2-enemy.get_Enemy_Width()*(enemy.get_Enemy_HPinit()*1/3)/5/2,  enemy.get_enemy_Point().y-10, enemy.get_Enemy_Width()*enemy.get_Enemy_HP()/5, 5); //적 에너지 바 위치, 크기
+				}
 				buffg.setColor(Color.BLACK);
 			}
 			
@@ -885,24 +939,6 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 				else
 					buffg.drawImage(enemy.get_Enemy_Img(), enemy.get_enemy_Point().x, enemy.get_enemy_Point().y,enemy.get_Enemy_Width(),enemy.get_Enemy_Height(), this);
 			}
-//			buffg.drawRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y, ((Enemy_bullet) enemy).get_Enemy_Width(),  ((Enemy_bullet) enemy).get_Enemy_Height()); //사각형으로 일단 대체
-//			for (int j = 0; j < enemy.get_Enemy_HP()/50; j++) {
-//				buffg.fillRect(enemy.get_enemy_Point().x,  enemy.get_enemy_Point().y-10,  (enemy.get_Enemy_Width()*enemy.get_Enemy_HP()-50*j)/10, 5); //적 에너지 바 위치, 크기
-//				if(j==0) {
-//					buffg.setColor(Color.GREEN);
-//				}
-//				else if(j==1) {
-//					buffg.setColor(Color.YELLOW);
-//				}
-//				else if(j==2) {
-//					buffg.setColor(Color.RED);
-//				}
-//				else {
-//					buffg.setColor(Color.black);
-//				}
-//			}
-//			buffg.setColor(Color.BLACK);
-		
 			
 			//적군을 움직이는 함수 호출 -> 멀티쓰레드로 변경 생성과 동시에 적군 클레스 쓰레드 자동생성
 			//캐릭터와 몬스터 충돌판정 함수 호출

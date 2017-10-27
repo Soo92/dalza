@@ -38,8 +38,6 @@ public class MainPanel extends MFrame implements ActionListener{
 	BufferedReader in;
 	PrintWriter out;
 	String id;
-	
-	
 
 	public MainPanel() {
 		mgr = new MemberMgr();
@@ -105,14 +103,17 @@ public class MainPanel extends MFrame implements ActionListener{
 		MemberBean bean = new MemberBean();
 			if (obj == logBtn) { 
 				// 중복 체크
-				msgl.setForeground(Color.red);
 				bean.setId(idTx.getText());
 				bean.setPass(pwTx.getText());
 				if(mgr.checkID(bean)) {
+					msgl.setForeground(Color.red);
 					msgl.setText("ID를 확인해주세요.");
 				}else if(mgr.checkPass(bean)){
+					msgl.setForeground(Color.red);
 					msgl.setText("PW를 확인해주세요.");
 				}else	{
+					msgl.setForeground(Color.BLACK);
+					msgl.setText(bean.getId()+"님 환영합니다!");
 					dispose();
 					new Main();
 				}
