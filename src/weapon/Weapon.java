@@ -35,8 +35,8 @@ public class Weapon {
 	
 	//생성시 초기화, 총알 좌표 초기화	
 	Weapon(Point character_Point, boolean bullet_Side_LEFT_RIGHT) {
-		Weapon_pic = tk.getImage("img/M_bullet.gif");
-		Weapon_icon = new ImageIcon("img/M_bullet.gif");
+		Weapon_pic = tk.getImage(this.getClass().getResource("/img/M_bullet.gif"));
+		Weapon_icon = new ImageIcon(this.getClass().getResource("/img/M_bullet.gif"));
 
 		//총알 의 시작 좌쵸를 전달 받는 캐릭터의 x 좌쵸로 설정
 		//총알 의 시작 좌쵸를 전달 받는 캐릭터의 y 좌쵸로 설정

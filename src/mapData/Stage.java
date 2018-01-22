@@ -43,43 +43,43 @@ public class Stage {
             switch(stage_Num){
                //1스테이지 일때
              case 1:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 stage_Num_1();
             break;
              case 2:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 stage_Num_2();
             break;
              case 3:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 stage_Num_3();
             break;
              case 4:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 stage_Num_4();
             break;
              case 5:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 stage_Num_5();
             break;
              case 6:
-                 Background = tk.getImage("img/stage"+stage_Num+".gif");
+                 Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                  block_Array.clear();
                  item_Array.clear();
                  stage_Num_6();
              break;
              case 7:
-                 Background = tk.getImage("img/stage"+stage_Num+".gif");
+                 Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                  block_Array.clear();
                  item_Array.clear();
                  stage_Num_7();
@@ -432,13 +432,13 @@ public class Stage {
                 VS_3();
             break;
              case 4:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 VS_4();
             break;
              case 5:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 VS_5();
@@ -524,7 +524,7 @@ public class Stage {
             switch(stage_Num){
                //1스테이지 일때
              case 1:
-                Background = tk.getImage("img/stage"+stage_Num+".gif");
+                Background = tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif"));
                 block_Array.clear();
                 item_Array.clear();
                 meet_Num_1();
@@ -560,7 +560,7 @@ public class Stage {
    }
    
    public void intro(){
-	   Background = tk.getImage("img/Hello_Back.gif");
+	   Background = tk.getImage(this.getClass().getResource("/img/Hello_Back.gif"));
        make_block(0,1200,2000,200,"block1");            //b1
        
        make_block(700,800,50,50,"left");            //b1

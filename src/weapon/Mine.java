@@ -11,8 +11,8 @@ public class Mine extends Weapon{
 			
 			super(character_Point, bullet_Side_LEFT_RIGHT);
 
-			Weapon_pic = tk.getImage("img/shit.gif");
-			Weapon_icon = new ImageIcon("img/shit.gif");
+			Weapon_pic = tk.getImage(this.getClass().getResource("/img/shit.gif"));
+			Weapon_icon = new ImageIcon(this.getClass().getResource("/img/shit.gif"));
 			
 			//피스톨의 기본 공격력
 			bullet_Power = 20;

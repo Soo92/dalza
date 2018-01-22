@@ -158,10 +158,10 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 		//프로그렘이 정상적으로 종료하도록 만들어 줍니다.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		menu1 = tk.getImage("img/menu1.png");
-		menu2 = tk.getImage("img/menu2.png");
-		menu3 = tk.getImage("img/menu3.png");
-		menu4 = tk.getImage("img/menu4.png");
+		menu1 = tk.getImage(this.getClass().getResource("/img/menu1.png"));
+		menu2 = tk.getImage(this.getClass().getResource("/img/menu2.png"));
+		menu3 = tk.getImage(this.getClass().getResource("/img/menu3.png"));
+		menu4 = tk.getImage(this.getClass().getResource("/img/menu4.png"));
 		//주인공 생성
 		mainCh = new Hero();
 		
@@ -242,14 +242,14 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 		//프레임에 저장된 png 이미지를 그려넣습니다.
 		//buffg.drawImage(hero_Png, mainCh.get_Hero_X_Point(), mainCh.get_Hero_Y_Point(), this);
 		if(mainCh.get_Hero_X_Point()<=framew/2) {                                 //캐릭터가 화면 왼쪽벽 위치
-			buffg.drawImage(tk.getImage("img/stage"+stage_Num+".gif"), 0, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh, this);
+			buffg.drawImage(tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif")), 0, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh, this);
 			buffg.drawRect( 0, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh);
 		}
 		else if(mainCh.get_Hero_X_Point()>=buffw-framew/2) {						//캐릭터가 화면 오른쪽벽 위치
 			buffg.drawRect(buffw-framew, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh);
 		}
 		else {																		//나머지 상황일때
-			buffg.drawImage(tk.getImage("img/stage"+stage_Num+".gif"), mainCh.get_Hero_X_Point()-framew/2, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh, this);
+			buffg.drawImage(tk.getImage(this.getClass().getResource("/img/stage"+stage_Num+".gif")), mainCh.get_Hero_X_Point()-framew/2, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh, this);
 			buffg.drawRect(mainCh.get_Hero_X_Point()-framew/2, mainCh.get_Hero_Y_Point()-buffh/2, buffw, buffh);
 		}
 		
@@ -711,7 +711,7 @@ class Meet extends JFrame implements KeyListener, Runnable, ActionListener{
 			while(st.hasMoreTokens()) {
 				String a = st.nextToken();
 				list.add(a);
-				Hero_List.add("0,0,0,0,false,true,img/char2.gif");
+				Hero_List.add("0,0,0,0,false,true,"+this.getClass().getResource("/img/char2.gif"));
 			}
 		}else if(cmd.equals(ChatProtocol.CHAT)||
 				cmd.equals(ChatProtocol.CHATALL)) {

@@ -14,8 +14,8 @@ public class FireBack extends Weapon{
          bullet_Power = 1;
          bullet_time = 1;
          bullet_Speed = 5;
-         Weapon_pic = tk.getImage("img/wave.gif");
-         Weapon_icon = new ImageIcon("img/wave.gif");
+         Weapon_pic = tk.getImage(this.getClass().getResource("/img/wave.gif"));
+         Weapon_icon = new ImageIcon(this.getClass().getResource("/img/wave.gif"));
          weapon_Width=0;
          weapon_Height=0;
       }

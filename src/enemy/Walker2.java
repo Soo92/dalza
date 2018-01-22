@@ -12,8 +12,8 @@ public class Walker2 extends Enemy{
 	
 	public Walker2(int left_Site, int right_Site, int bottom_Site) {
 		super(left_Site, right_Site, bottom_Site);
-		Enemy_pic = tk.getImage("img/walker2.gif");
-		Enemy_icon = new ImageIcon("img/walker2.gif");
+		Enemy_pic = tk.getImage(this.getClass().getResource("/img/walker2.gif"));
+		Enemy_icon = new ImageIcon(this.getClass().getResource("/img/walker2.gif"));
 		
 		width = Enemy_icon.getIconWidth();
 		height = Enemy_icon.getIconHeight();

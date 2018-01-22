@@ -15,8 +15,8 @@ public class Pistol extends Weapon{
 			bullet_Power = 1;
 			bullet_time = 1;
 			bullet_Speed = 10;
-			Weapon_pic = tk.getImage("img/M_bullet.gif");
-			Weapon_icon = new ImageIcon("img/M_bullet.gif");		}
+			Weapon_pic = tk.getImage(this.getClass().getResource("/img/M_bullet.gif"));
+			Weapon_icon = new ImageIcon(this.getClass().getResource("/img/M_bullet.gif"));		}
 		
 		//권총의 날아가는 방향을 계산 좌축 또는 우측
 		public void pistol_Move(boolean direction){

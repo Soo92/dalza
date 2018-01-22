@@ -72,8 +72,8 @@ public class Enemy extends Thread{ //쓰레드를 상속받아서 적군은 적군 알아서 움직
 	
 	public Enemy(int left_Bound_Site, int right_Bound_Site, int bottom_Bound_Site) { //생성될 곳 좌표도 받아와야함
 		
-		Enemy_pic = tk.getImage("img/walker1.gif");
-		Enemy_icon = new ImageIcon("img/walker1.gif");
+		Enemy_pic = tk.getImage(this.getClass().getResource("/img/walker1.gif"));
+		Enemy_icon = new ImageIcon(this.getClass().getResource("/img/walker1.gif"));
 
 		//워커 둘레
 		width = Enemy_icon.getIconWidth();
@@ -147,7 +147,7 @@ public class Enemy extends Thread{ //쓰레드를 상속받아서 적군은 적군 알아서 움직
 	}
 	
 	public void set_Enemy_Image(String img) {
-		Enemy_pic = tk.getImage(img);
+		Enemy_pic = tk.getImage(this.getClass().getResource(img));
 		Enemy_icon = new ImageIcon(img);
 	}
 	

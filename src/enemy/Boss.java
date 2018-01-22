@@ -17,8 +17,8 @@ public class Boss extends Enemy{
 	
 	public Boss(int left_Site, int right_Site, int bottom_Site) {
 		super(left_Site, right_Site, bottom_Site);
-		Enemy_pic = tk.getImage("img/gorilla.gif");
-		Enemy_icon = new ImageIcon("img/gorilla.gif");
+		Enemy_pic = tk.getImage(this.getClass().getResource("/img/gorilla.gif"));
+		Enemy_icon = new ImageIcon(this.getClass().getResource("/img/gorilla.gif"));
 		
 		width = Enemy_icon.getIconWidth();
 		height = Enemy_icon.getIconHeight();

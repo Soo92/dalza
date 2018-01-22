@@ -21,8 +21,8 @@ public class Main extends MFrame implements KeyListener{
 	int select = 1;
 	Graphics buffi;
 	Image buffImg;
-	Image background=tk.getImage("img/main_background.gif");
-	ImageIcon a = new ImageIcon("img/main_background.gif");
+	Image background=tk.getImage(this.getClass().getResource("/img/main_background.gif"));
+	ImageIcon a = new ImageIcon(this.getClass().getResource("/img/main_background.gif"));
 	Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();		//프레임이 윈도우에 표시괼때 위치를 세팅하기 위함.
 	
 	
@@ -48,24 +48,24 @@ public class Main extends MFrame implements KeyListener{
 		//buffi.drawString("Project 1",155, 230);
 		buffi.setFont(new Font("돋움", Font.PLAIN, 15));
 		if(he==0)
-			buffi.drawImage(tk.getImage("img/button_story_.gif"), 130, 280, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_story_.gif")), 130, 280, this);
 		else
-			buffi.drawImage(tk.getImage("img/button_story.gif"), 130, 280, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_story.gif")), 130, 280, this);
 		
 		if(he==80)
-			buffi.drawImage(tk.getImage("img/button_vs_.gif"), 130, 360, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_vs_.gif")), 130, 360, this);
 		else
-			buffi.drawImage(tk.getImage("img/button_vs.gif"), 130, 360, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_vs.gif")), 130, 360, this);
 		
 		if(he==160)
-			buffi.drawImage(tk.getImage("img/button_meet_.gif"), 130, 440, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_meet_.gif")), 130, 440, this);
 		else
-			buffi.drawImage(tk.getImage("img/button_meet.gif"), 130, 440, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_meet.gif")), 130, 440, this);
 		
 		if(he==240)
-			buffi.drawImage(tk.getImage("img/button_hello_.gif"), 130, 520, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_hello_.gif")), 130, 520, this);
 		else
-			buffi.drawImage(tk.getImage("img/button_hello.gif"), 130, 520, this);
+			buffi.drawImage(tk.getImage(this.getClass().getResource("/img/button_hello.gif")), 130, 520, this);
 		
 		//buffi.drawRect(130, 280+select*he, 280, 65);
 		g.drawImage(buffImg, 0, 0, this);
@@ -92,8 +92,8 @@ public class Main extends MFrame implements KeyListener{
 			break;
 		case KeyEvent.VK_ENTER:
 			if(he==0) {dispose(); new Story();}				
-			if(he==80) {dispose(); new VSmode();}				
-			if(he==160) {dispose(); new Meet();}		
+//			if(he==80) {dispose(); new VSmode();}				
+//			if(he==160) {dispose(); new Meet();}		
 			if(he==240) {dispose(); new Hello();}			
 			break;
 		}

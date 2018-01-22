@@ -57,8 +57,8 @@ public class Hero extends JPanel{
    //히어로 기본 생성자
    public Hero() {
     ImgUrl = "img/dalza_run.gif";
-  	Hero_pic = tk.getImage("img/dalza_run.gif");
-	Hero_icon = new ImageIcon("img/dalza_run.gif");
+  	Hero_pic = tk.getImage(this.getClass().getResource("/img/dalza_run.gif"));
+	Hero_icon = new ImageIcon(this.getClass().getResource("/img/dalza_run.gif"));
       
       x_Point = 100;
       y_Point = 620;
@@ -97,8 +97,8 @@ public class Hero extends JPanel{
    }
    
    public void set_Hero_Image(String img) {
-		Hero_pic = tk.getImage(img);
-		Hero_icon = new ImageIcon(img);
+		Hero_pic = tk.getImage(this.getClass().getResource(img));
+		Hero_icon = new ImageIcon(Hero_pic);
 	}
    
    //히어로 폭 반환
@@ -122,19 +122,19 @@ public class Hero extends JPanel{
    public void move(){  //synchronized 해당 함수가 작동하는 동안 동기화를 수행한다.
       //좌우 움직임 컨트롤
 	   if(x_Flag_Left){
-			Hero_pic = tk.getImage("img/dalza_run.gif");
-			Hero_icon = new ImageIcon("img/dalza_run.gif");
+			Hero_pic = tk.getImage(this.getClass().getResource("/img/dalza_run.gif"));
+			Hero_icon = new ImageIcon(this.getClass().getResource("/img/dalza_run.gif"));
 			x_Point -= move;
 		}
 		if(x_Flag_Right){
-			Hero_pic = tk.getImage("img/dalza_run.gif");
-			Hero_icon = new ImageIcon("img/dalza_run.gif");
+			Hero_pic = tk.getImage(this.getClass().getResource("/img/dalza_run.gif"));
+			Hero_icon = new ImageIcon(this.getClass().getResource("/img/dalza_run.gif"));
 			x_Point += move;
 		}
 		if(!x_Flag_Left&&!x_Flag_Right) {
 			//System.out.println("a");
-			Hero_pic = tk.getImage("img/dalza_normal.gif");
-			Hero_icon = new ImageIcon("img/dalza_normal.gif");
+			Hero_pic = tk.getImage(this.getClass().getResource("/img/dalza_normal.gif"));
+			Hero_icon = new ImageIcon(this.getClass().getResource("/img/dalza_normal.gif"));
 		}
    }
    
@@ -165,14 +165,14 @@ public class Hero extends JPanel{
           if(jump_Hero_UP_DOWN){
              gSum -= g;
              y_Point -= gSum+JumpSpeed;
-            Hero_pic = tk.getImage("img/dalza_jump.gif");
-			Hero_icon = new ImageIcon("img/dalza_jump.gif");
+            Hero_pic = tk.getImage(this.getClass().getResource("/img/dalza_jump.gif"));
+			Hero_icon = new ImageIcon(this.getClass().getResource("/img/dalza_jump.gif"));
 			
           }else{ //내려가는중
              gSum += g;
              y_Point += gSum;
-             Hero_pic = tk.getImage("img/dalza_run.gif");
-			 Hero_icon = new ImageIcon("img/dalza_run.gif");
+             Hero_pic = tk.getImage(this.getClass().getResource("/img/dalza_run.gif"));
+			 Hero_icon = new ImageIcon(this.getClass().getResource("/img/dalza_run.gif"));
           }
       }
    }

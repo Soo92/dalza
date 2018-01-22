@@ -126,10 +126,10 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 		//프로그렘이 정상적으로 종료하도록 만들어 줍니다.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		menu1 = tk.getImage("img/sub_button_start.gif");
-		menu2 = tk.getImage("img/sub_button_help.gif");
-		menu3 = tk.getImage("img/sub_button_exit.gif");
-		menu4 = tk.getImage("img/sub_button_start_.gif");
+		menu1 = tk.getImage(this.getClass().getResource("/img/sub_button_start.gif"));
+		menu2 = tk.getImage(this.getClass().getResource("/img/sub_button_help.gif"));
+		menu3 = tk.getImage(this.getClass().getResource("/img/sub_button_exit.gif"));
+		menu4 = tk.getImage(this.getClass().getResource("/img/sub_button_start_.gif"));
 		
 		//주인공 생성
 		mainCh = new Hero();
@@ -162,19 +162,19 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 		//일시정지
 		if(resumed) {
 			if(a==20)
-				g.drawImage(tk.getImage("img/sub_button_start_.gif"), 230, 250, this);
+				g.drawImage(tk.getImage(this.getClass().getResource("/img/sub_button_start_.gif")), 230, 250, this);
 			else
-				g.drawImage(tk.getImage("img/sub_button_start.gif"), 230, 250, this);
+				g.drawImage(tk.getImage(this.getClass().getResource("/img/sub_button_start.gif")), 230, 250, this);
 			
 			if(b==20)
-				g.drawImage(tk.getImage("img/sub_button_help_.gif"), 230, 320, this);
+				g.drawImage(tk.getImage(this.getClass().getResource("/img/sub_button_help_.gif")), 230, 320, this);
 			else
-				g.drawImage(tk.getImage("img/sub_button_help.gif"), 230, 320, this);
+				g.drawImage(tk.getImage(this.getClass().getResource("/img/sub_button_help.gif")), 230, 320, this);
 			
 			if(d==20)
-				g.drawImage(tk.getImage("img/sub_button_exit_.gif"), 230, 390, this);
+				g.drawImage(tk.getImage(this.getClass().getResource("/img/sub_button_exit_.gif")), 230, 390, this);
 			else
-				g.drawImage(tk.getImage("img/sub_button_exit.gif"), 230, 390, this);
+				g.drawImage(tk.getImage(this.getClass().getResource("/img/sub_button_exit.gif")), 230, 390, this);
 		}
 	}
 	
@@ -212,7 +212,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 		
 		//클리어
 	      if(clear_Stage) {
-	          g.drawImage(tk.getImage("img/clear.gif"), (framew/4)+30, (frameh/4)+130, this);
+	          g.drawImage(tk.getImage(this.getClass().getResource("/img/clear.gif")), (framew/4)+30, (frameh/4)+130, this);
 	       }
 		
 		//낙하
@@ -278,26 +278,20 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 			//System.out.println(stage.get_Block().get(i).get_effect());
             for (int j = 0; j < stage.get_Block().get(i).get_Height()/50; j++) {
                 for (int j2 = 0; j2 < stage.get_Block().get(i).get_Width()/50; j2++) {
-                   buffg.drawImage(tk.getImage("img/"+stage.get_Block().get(i).get_effect()+".jpg"), 
+                	if(this.getClass().getResource("/img/"+stage.get_Block().get(i).get_effect()+".jpg")!=null)
+                   buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Block().get(i).get_effect()+".jpg")), 
                          stage.get_Block().get(i).get_Left_Top_Point().x+j2*50, 
                          stage.get_Block().get(i).get_Left_Top_Point().y+j*50, 50, 50, this);
+                	else if(this.getClass().getResource("/img/"+stage.get_Block().get(i).get_effect()+".png")!=null)
+                        buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Block().get(i).get_effect()+".png")), 
+                              stage.get_Block().get(i).get_Left_Top_Point().x+j2*50, 
+                              stage.get_Block().get(i).get_Left_Top_Point().y+j*50, 50, 50, this);
+                	else if(this.getClass().getResource("/img/"+stage.get_Block().get(i).get_effect()+".gif")!=null)
+                        buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Block().get(i).get_effect()+".gif")), 
+                              stage.get_Block().get(i).get_Left_Top_Point().x+j2*50, 
+                              stage.get_Block().get(i).get_Left_Top_Point().y+j*50, 50, 50, this);
                 }
              }
-             for (int j = 0; j < stage.get_Block().get(i).get_Height()/50; j++) {
-                for (int j2 = 0; j2 < stage.get_Block().get(i).get_Width()/50; j2++) {
-                   buffg.drawImage(tk.getImage("img/"+stage.get_Block().get(i).get_effect()+".gif"), 
-                         stage.get_Block().get(i).get_Left_Top_Point().x+j2*50, 
-                         stage.get_Block().get(i).get_Left_Top_Point().y+j*50, 50, 50, this);
-                }
-             }
-             for (int j = 0; j < stage.get_Block().get(i).get_Height()/50; j++) {
-                for (int j2 = 0; j2 < stage.get_Block().get(i).get_Width()/50; j2++) {
-                   buffg.drawImage(tk.getImage("img/"+stage.get_Block().get(i).get_effect()+".png"), 
-                         stage.get_Block().get(i).get_Left_Top_Point().x+j2*50, 
-                         stage.get_Block().get(i).get_Left_Top_Point().y+j*50, 50, 50, this);
-                }
-             }
-
 			
 			//충돌 함수 호출 1이면 벽과 캐릭터
 			crash_Decide_Block(mainCh, stage.get_Block().get(i));
@@ -329,22 +323,25 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 			if(stage.get_Item().get(i).get_effect()=="Beer")
 	            for (int j = 0; j < stage.get_Item().get(i).get_Height()/150; j++) {
 	                for (int j2 = 0; j2 < stage.get_Item().get(i).get_Width()/250; j2++) {
-	                   buffg.drawImage(tk.getImage("img/"+stage.get_Item().get(i).get_effect()+".png"), 
+	                   buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".png")), 
 	                         stage.get_Item().get(i).get_Left_Top_Point().x+j2*250, 
 	                         stage.get_Item().get(i).get_Left_Top_Point().y+j*150, 250, 150, this);
 	                }
 	             }
 			//System.out.println(stage.get_Item().get(i).get_effect());
 			else {
-			buffg.drawImage(tk.getImage("img/"+stage.get_Item().get(i).get_effect()+".png"),stage.get_Item().get(i).get_Left_Top_Point().x,
+			if(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".png")!=null)
+			buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".png")),stage.get_Item().get(i).get_Left_Top_Point().x,
 					stage.get_Item().get(i).get_Left_Top_Point().y,
 					stage.get_Item().get(i).get_Width(), 
 					stage.get_Item().get(i).get_Height(), this);
-			buffg.drawImage(tk.getImage("img/"+stage.get_Item().get(i).get_effect()+".jpg"),stage.get_Item().get(i).get_Left_Top_Point().x,
+			else if(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".gif")!=null)
+			buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".gif")),stage.get_Item().get(i).get_Left_Top_Point().x,
 					stage.get_Item().get(i).get_Left_Top_Point().y,
 					stage.get_Item().get(i).get_Width(), 
 					stage.get_Item().get(i).get_Height(), this);
-			buffg.drawImage(tk.getImage("img/"+stage.get_Item().get(i).get_effect()+".gif"),stage.get_Item().get(i).get_Left_Top_Point().x,
+			else if(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".jpg")!=null)
+			buffg.drawImage(tk.getImage(this.getClass().getResource("/img/"+stage.get_Item().get(i).get_effect()+".jpg")),stage.get_Item().get(i).get_Left_Top_Point().x,
 					stage.get_Item().get(i).get_Left_Top_Point().y,
 					stage.get_Item().get(i).get_Width(), 
 					stage.get_Item().get(i).get_Height(), this);
@@ -690,7 +687,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					}
 					
 					if(enemy.get_Enemy_HP()==120) {
-						enemy.set_Enemy_Image("img/gorilla2.gif");
+						enemy.set_Enemy_Image("/img/gorilla2.gif");
 						
 						enemy = new Walker(stage.get_Block().get(19).get_Left_Top_Point().x, 
 								stage.get_Block().get(19).get_Left_Top_Point().x+stage.get_Block().get(19).get_Width()-600, 
@@ -705,7 +702,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 					}
 					
 					if(enemy.get_Enemy_HP()==90) {
-						enemy.set_Enemy_Image("img/gorilla3.gif");
+						enemy.set_Enemy_Image("/img/gorilla3.gif");
 						
 						enemy = new Walker2(stage.get_Block().get(19).get_Left_Top_Point().x, 
 								stage.get_Block().get(19).get_Left_Top_Point().x+stage.get_Block().get(19).get_Width()-300, 
@@ -713,7 +710,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 						enemy_List.add(enemy);
 					}
 					if(enemy.get_Enemy_HP()==60) {
-						enemy.set_Enemy_Image("img/gorilla4.gif");
+						enemy.set_Enemy_Image("/img/gorilla4.gif");
 						
 						enemy = new Bat(stage.get_Block().get(19).get_Left_Top_Point().x, 
 								stage.get_Block().get(19).get_Left_Top_Point().x+stage.get_Block().get(19).get_Width()-600, 
@@ -731,7 +728,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 						enemy_List.add(enemy);
 					}
 					if(enemy.get_Enemy_HP()==30) {
-						enemy.set_Enemy_Image("img/gorilla5.gif");
+						enemy.set_Enemy_Image("/img/gorilla5.gif");
 						
 						enemy = new Bat(stage.get_Block().get(19).get_Left_Top_Point().x, 
 								stage.get_Block().get(19).get_Left_Top_Point().x+stage.get_Block().get(19).get_Width()-700, 
@@ -1107,7 +1104,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 				weapon = new FireBack(pistol_Point, mainCh.get_Face_Side_LFET_RIGHT()); //캐릭터의 좌표 지점에 권총을 생성한다.
 				bullet_List.add(weapon); //권총의 공격을 불릿 리스트에 넣는다 블릿 리스틑 Weapon 클래스로 되어있다.
 				bulletch=cnt;
-				mainCh.set_Hero_Image("img/dalza_woof.gif");
+				mainCh.set_Hero_Image("/img/dalza_woof.gif");
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
@@ -1127,7 +1124,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 				pistol_Point = new Point(mainCh.get_Hero_X_Point(),mainCh.get_Hero_Y_Point()); //캐릭터의 좌쵸를 알아와서 위치 정보를 저장
 				weapon = new Mine(pistol_Point, mainCh.get_Face_Side_LFET_RIGHT()); //캐릭터의 좌표 지점에 권총을 생성한다.
 				bullet_List.add(weapon); //권총의 공격을 불릿 리스트에 넣는다 블릿 리스틑 Weapon 클래스로 되어있다.
-				mainCh.set_Hero_Image("img/dalza_dong.gif");
+				mainCh.set_Hero_Image("/img/dalza_dong.gif");
 				try {
 					Thread.sleep(900);
 				} catch (InterruptedException e) {
@@ -1144,7 +1141,7 @@ class Story extends JFrame implements KeyListener, Runnable, ActionListener{
 	}
 	
 	   public void dash(Hero mainCh) {
-		      mainCh.set_Hero_Image("img/dalza_run.gif");
+		      mainCh.set_Hero_Image("/img/dalza_run.gif");
 		      for (int i = 0; i < 10; i++) {
 		         if(!mainCh.get_Face_Side_LFET_RIGHT()) {
 		            mainCh.set_Hero_X_Point(mainCh.get_Hero_X_Point()+30);

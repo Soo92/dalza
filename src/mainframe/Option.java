@@ -106,10 +106,10 @@ class Option extends JFrame implements KeyListener, Runnable, ActionListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//주인공의 기본 이미지 삽입
-		hero_Png = tk.getImage("img/hero_1.png");
-		bullet_Png = tk.getImage("img/Bullet_img.png");
+		hero_Png = tk.getImage(this.getClass().getResource("/img/hero_1.png"));
+		bullet_Png = tk.getImage(this.getClass().getResource("/img/Bullet_img.png"));
 		//적군 이미지
-		walker_Png = tk.getImage("img/walker_img.png");
+		walker_Png = tk.getImage(this.getClass().getResource("/img/walker_img.png"));
 		//주인공 생성
 		mainCh = new Hero();
 		

@@ -17,7 +17,4 @@ public class MemberBean {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
-
-	
 }

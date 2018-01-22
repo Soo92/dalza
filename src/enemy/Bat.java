@@ -13,8 +13,8 @@ public class Bat extends Enemy{
    
    public Bat(int left_Site, int right_Site, int bottom_Site) {
       super(left_Site, right_Site, bottom_Site);
-      Enemy_pic = tk.getImage("img/walker4.gif");
-      Enemy_icon = new ImageIcon("img/walker4.gif");
+      Enemy_pic = tk.getImage(this.getClass().getResource("/img/walker4.gif"));
+      Enemy_icon = new ImageIcon(this.getClass().getResource("/img/walker4.gif"));
       
       
       int a=60;

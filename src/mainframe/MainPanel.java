@@ -27,8 +27,8 @@ public class MainPanel extends MFrame implements ActionListener{
 
 	Image buffImg;
 	Graphics buffi;
-	Image background = tk.getImage("img/login.gif");
-	ImageIcon a = new ImageIcon("img/login.gif");
+	Image background = tk.getImage(this.getClass().getResource("/img/login.gif"));
+	ImageIcon a = new ImageIcon(background);
 
 	TextField idTx, pwTx;
 	Label idl, pwl, msgl;

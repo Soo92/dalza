@@ -12,8 +12,8 @@ public class Enemy_bullet extends Walker3{
 	
 	public Enemy_bullet(int left_Site, int right_Site, int bottom_Site) {
 		super(left_Site, right_Site, bottom_Site);
-		Enemy_pic = tk.getImage("img/bullet.gif");
-		Enemy_icon = new ImageIcon("img/bullet.gif");
+		Enemy_pic = tk.getImage(this.getClass().getResource("/img/bullet.gif"));
+		Enemy_icon = new ImageIcon(this.getClass().getResource("/img/bullet.gif"));
 		
 		width = Enemy_icon.getIconWidth();
 		height = Enemy_icon.getIconHeight();

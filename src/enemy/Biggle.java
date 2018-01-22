@@ -16,8 +16,8 @@ public class Biggle extends Enemy{
 	
 	public Biggle(int left_Site, int right_Site, int bottom_Site) {
 		super(left_Site, right_Site, bottom_Site);
-		Enemy_pic = tk.getImage("img/cat.gif");
-		Enemy_icon = new ImageIcon("img/cat.gif");
+		Enemy_pic = tk.getImage(this.getClass().getResource("/img/cat.gif"));
+		Enemy_icon = new ImageIcon(this.getClass().getResource("/img/cat.gif"));
 		
 		int a=60;
 		width = a*Enemy_icon.getIconWidth()/Enemy_icon.getIconHeight();
